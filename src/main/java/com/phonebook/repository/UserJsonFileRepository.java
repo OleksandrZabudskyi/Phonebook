@@ -29,18 +29,15 @@ public class UserJsonFileRepository implements UserRepository {
     private String path;
 
     @Override
-    public User findByUsername(String username) {
+    public User findByUsername(final String username) {
         File dir = new File(path);
-        FilenameFilter jsonFilter = (file, name) -> {
-            if (name.equals(username + ".json")) {
-                return true;
-            } else {
-                return false;
-            }
-        };
+        FilenameFilter jsonFilter = (file, name) -> name.equals(username + ".json");
         File[] files = dir.listFiles(jsonFilter);
+        if (files == null) {
+            return null;
+        }
         ObjectMapper objectMapper = new ObjectMapper();
-        User user = null;
+        User user;
         if (files.length == 0) {
             LOG.warn(String.format("There is no Json files in dir: %s ", dir));
             return null;
@@ -60,10 +57,14 @@ public class UserJsonFileRepository implements UserRepository {
     public Boolean saveUser(User user) {
 
         File file = new File(path + user.getUsername() + "_tmp" + ".json");
-        file.getParentFile().mkdirs();
+        if(!file.getParentFile().mkdirs()) {
+            return false;
+        }
 
         try {
-            file.createNewFile();
+            if(!file.createNewFile()) {
+                return false;
+            }
         } catch (IOException e) {
             LOG.error("ERROR: '{}'", e.getMessage(), e);
         }
@@ -77,8 +78,7 @@ public class UserJsonFileRepository implements UserRepository {
             if (new File(pathToOldFile).exists()){
                 Files.delete(Paths.get(pathToOldFile));
             }
-            file.renameTo(new File(path + user.getUsername() + ".json"));
-            return true;
+            return file.renameTo(new File(pathToOldFile));
         } catch (JsonGenerationException e) {
             LOG.error("ERROR: '{}'", e.getMessage(), e);
             return false;
