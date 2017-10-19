@@ -28,7 +28,7 @@ public class UserSourceConfig {
     }
 
     @Bean(name = "userRepoType")
-    public UserRepository userDAO(@Value("${app.dbType}") String databaseType, ApplicationContext context) {
+    public UserRepository userRepository(@Value("${app.dbType}") String databaseType, ApplicationContext context) {
         if ("JSON".equalsIgnoreCase(databaseType)) {
             return context.getBean(UserJsonFileRepository.class);
         } else {
