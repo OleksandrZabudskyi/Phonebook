@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 @Repository
 public class UserJsonFileRepository implements UserRepository {
 
-    private static final Logger LOG = LoggerFactory.getLogger(SecurityServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserJsonFileRepository.class);
 
     @Value("${spring.file.datasource.path}")
     private String path;
@@ -54,7 +54,7 @@ public class UserJsonFileRepository implements UserRepository {
         return user;
     }
 
-    public Boolean saveUser(User user) {
+    public boolean saveUser(User user) {
 
         File file = new File(path + user.getUsername() + "_tmp" + ".json");
         if(!file.getParentFile().mkdirs()) {
