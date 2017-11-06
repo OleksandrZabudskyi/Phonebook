@@ -18,7 +18,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * The class is designed to work with simple JSON file instead of regular DB
+ *
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Repository
 public class UserJsonFileRepository implements UserRepository {

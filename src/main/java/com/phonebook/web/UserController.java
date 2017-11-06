@@ -27,18 +27,16 @@ public class UserController {
     private UserService userService;
     private SecurityService securityService;
     private UserValidator userValidator;
-    private ContactValidator contactValidator;
 
     public UserController() {
     }
 
     @Autowired
     public UserController( @Qualifier("storage") UserService userService, SecurityService securityService,
-                           UserValidator userValidator, ContactValidator contactValidator) {
+                           UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
         this.userValidator = userValidator;
-        this.contactValidator = contactValidator;
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -56,8 +54,8 @@ public class UserController {
         }
 
         userService.saveUser(userForm);
-        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
-        return "redirect:/welcome";
+        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+        return "redirect:/phonebook";
     }
 
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
@@ -71,7 +69,7 @@ public class UserController {
         return "loginForm";
     }
 
-    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    @RequestMapping(value = "/phonebook", method = RequestMethod.GET)
     public ModelAndView showPhoneBook(@PathParam("message") String message) {
         ModelAndView result = new ModelAndView("home");
         result.addObject("message",message);
@@ -87,50 +85,4 @@ public class UserController {
         return result;
 
     }
-
-    @RequestMapping(value = "/welcome", method = RequestMethod.POST)
-    public ModelAndView saveContact(@ModelAttribute("contactForm") Contact contactForm, BindingResult bindingResult) {
-        ModelAndView result = new ModelAndView("home");
-        String userName = securityService.findAuthenticatedUsername();
-        User user = userService.findUserByUsername(userName);
-
-        if (user == null) {
-            return new ModelAndView("loginForm");
-        }
-
-        contactValidator.validate(contactForm, bindingResult);
-        Long contactId = contactForm.getId();
-        if (bindingResult.hasErrors()) {
-            result.addObject("errorMessage","You have entered invalid values. Please try again.");
-        } else {
-            userService.saveContact(contactForm, user);
-            if(contactId != null) {
-                result.addObject("message", "Selected contact was successfully updated");
-            } else {
-                result.addObject("message", "Contact was successfully add");
-            }
-
-        }
-
-        result.addObject("contacts", user.getContacts());
-        return result;
-    }
-
-    @RequestMapping(value = "/rm", method = RequestMethod.POST)
-    public String deleteContact(@PathParam("id") String id, @ModelAttribute("contactForm") Contact contactForm, Model model) {
-        String userName = securityService.findAuthenticatedUsername();
-        User user = userService.findUserByUsername(userName);
-
-        if (user == null) {
-            return "loginForm";
-        }
-
-        if (id != null) {
-            userService.deleteContact(Long.valueOf(id), user);
-            model.addAttribute("message", "Selected contact was successfully removed");
-        }
-
-        return "redirect:/welcome";
-    }
-
 }

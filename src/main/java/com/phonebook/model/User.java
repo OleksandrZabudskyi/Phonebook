@@ -12,19 +12,12 @@ import java.util.*;
 @Table(name = "user")
 @JsonIgnoreProperties({"passwordConfirm"})
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
+
     private Long id;
-    @Column(name = "user_name")
     private String username;
-    @Column(name = "password")
     private String password;
-    @Transient
     private String passwordConfirm;
-    @Column(name = "full_name")
     private String fullName;
-    @OneToMany(mappedBy = "user")
     private List<Contact> contacts = new LinkedList<>();
 
     public User() {
@@ -42,6 +35,9 @@ public class User {
         this(username, password, null, fullName, null);
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     public Long getId() {
         return id;
     }
@@ -50,6 +46,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "user_name")
     public String getUsername() {
         return username;
     }
@@ -58,6 +55,7 @@ public class User {
         this.username = username;
     }
 
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -66,6 +64,7 @@ public class User {
         this.password = password;
     }
 
+    @Transient
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
@@ -74,6 +73,7 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
+    @Column(name = "full_name")
     public String getFullName() {
         return fullName;
     }
@@ -82,6 +82,7 @@ public class User {
         this.fullName = fullName;
     }
 
+    @OneToMany(mappedBy = "user")
     public List<Contact> getContacts() {
         return contacts;
     }

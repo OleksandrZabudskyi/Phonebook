@@ -8,5 +8,5 @@ import com.phonebook.model.User;
 public interface SecurityService {
     String findAuthenticatedUsername();
 
-    void autologin(String username, String password);
+    void autoLogin(String username, String password);
 }

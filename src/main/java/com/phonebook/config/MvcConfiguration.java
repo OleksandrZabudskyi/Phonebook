@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Configuration
 @EnableWebMvc

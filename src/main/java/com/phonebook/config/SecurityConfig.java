@@ -14,7 +14,7 @@ import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Configuration
 @EnableWebSecurity
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/welcome")
+                .defaultSuccessUrl("/phonebook")
                 .failureUrl("/login?error=true")
                 .and()
                 .logout().logoutSuccessUrl("/login?logout");
