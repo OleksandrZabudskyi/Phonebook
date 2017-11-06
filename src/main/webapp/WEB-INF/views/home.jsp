@@ -51,7 +51,7 @@
         </button>
 
 
-        <form:form role="form" id="deleteForm" action="${contextPath}/rm" method="POST" modelAttribute="contactForm">
+        <form:form role="form" id="deleteForm" action="${contextPath}/deleteContact" method="POST" modelAttribute="contactForm">
             <spring:bind path="id">
                 <div class="form-group required ${status.error ? 'has-error' : ''}">
                     <form:input type="hidden" path="id" class="form-control"></form:input>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form:form role="form" method="POST" modelAttribute="contactForm">
+                        <form:form role="form" action="${contextPath}/saveContact" method="POST" modelAttribute="contactForm">
                             <spring:bind path="firstName">
                                 <div class="form-group required ${status.error ? 'has-error' : ''}">
                                     <label for="firstName"
@@ -157,7 +157,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form:form role="form" method="POST" modelAttribute="contactForm">
+                        <form:form role="form" action="${contextPath}/saveContact" method="POST" modelAttribute="contactForm">
                             <spring:bind path="id">
                                 <div class="form-group required ${status.error ? 'has-error' : ''}">
                                     <form:input type="hidden" path="id" class="form-control" id="id"></form:input>
