@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.phonebook.model.User;
-import com.phonebook.service.SecurityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +20,7 @@ import java.nio.file.Paths;
  * The class is designed to work with simple JSON file instead of regular DB
  *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see UserRepository
  */
 @Repository
 public class UserJsonFileRepository implements UserRepository {
@@ -56,6 +56,12 @@ public class UserJsonFileRepository implements UserRepository {
         return user;
     }
 
+    /**
+     * Save user to json file in JSON format
+     *
+     * @param user
+     * @return if operation is successful return {@code true} otherwise {@code false}
+     */
     public boolean saveUser(User user) {
 
         File file = new File(path + user.getUsername() + "_tmp" + ".json");

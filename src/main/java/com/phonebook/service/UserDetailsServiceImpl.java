@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 
 /**
+ * Implementation login/authentication with Spring Security
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Service

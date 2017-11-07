@@ -7,15 +7,35 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * Provide service layer to manipulate with data
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public interface UserService {
-
+    /**
+     *
+     * @param username
+     * @return
+     */
     User findUserByUsername(String username);
 
+    /**
+     *
+     * @param user user
+     */
     void saveUser(User user);
 
+    /**
+     *
+     * @param contact contact
+     * @param user user
+     */
     void saveContact(Contact contact, User user);
 
+    /**
+     *
+     * @param contactId contactId
+     * @param user user
+     */
     void deleteContact(Long contactId, User user);
 }

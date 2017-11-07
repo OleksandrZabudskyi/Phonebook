@@ -1,6 +1,5 @@
 package com.phonebook.validator;
 
-
 import com.phonebook.model.Contact;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -8,7 +7,12 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 /**
+ * <code>ContactValidator</code> class is the <code>Validator</code> interface
+ * implementation.
+ * To provide input-data validation
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see Validator
  */
 @Component
 public class ContactValidator implements Validator {

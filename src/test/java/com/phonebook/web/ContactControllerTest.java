@@ -1,6 +1,6 @@
 package com.phonebook.web;
 
-import com.phonebook.DataFactory;
+import com.phonebook.TestDataFactory;
 import com.phonebook.model.Contact;
 import com.phonebook.model.User;
 import com.phonebook.service.SecurityService;
@@ -49,7 +49,7 @@ public class ContactControllerTest {
     @Test
     public void updateContact() throws Exception {
         User user = new User("Jone", "12345", "Jone Bishop");
-        List<Contact> contacts = DataFactory.createContactList(4, user);
+        List<Contact> contacts = TestDataFactory.createContactList(4, user);
         user.setContacts(contacts);
         when(mockSecurityService.findAuthenticatedUsername()).thenReturn("Jone");
         when(mockUserService.findUserByUsername("Jone")).thenReturn(user);
@@ -71,7 +71,7 @@ public class ContactControllerTest {
     @Test
     public void saveContact() throws Exception {
         User user = new User("Jone", "12345", "Jone Bishop");
-        List<Contact> contacts = DataFactory.createContactList(4, user);
+        List<Contact> contacts = TestDataFactory.createContactList(4, user);
         user.setContacts(contacts);
         when(mockSecurityService.findAuthenticatedUsername()).thenReturn("Jone");
         when(mockUserService.findUserByUsername("Jone")).thenReturn(user);
@@ -92,7 +92,7 @@ public class ContactControllerTest {
     @Test
     public void deleteContact() throws Exception {
         User user = new User("Mike", "12345", "Jone Bishop");
-        List<Contact> contacts = DataFactory.createContactList(4, user);
+        List<Contact> contacts = TestDataFactory.createContactList(4, user);
         user.setContacts(contacts);
         when(mockSecurityService.findAuthenticatedUsername()).thenReturn("Mike");
         when(mockUserService.findUserByUsername("Mike")).thenReturn(user);

@@ -12,7 +12,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 /**
+ * <code>SecurityServiceImpl</code> class is the <code>SecurityService</code> interface
+ * implementation.
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see SecurityService
  */
 @Service
 public class SecurityServiceImpl implements SecurityService {

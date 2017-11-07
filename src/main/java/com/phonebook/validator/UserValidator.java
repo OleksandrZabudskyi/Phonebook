@@ -10,7 +10,12 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 /**
+ * <code>UserValidator</code> class is the <code>Validator</code> interface
+ * implementation.
+ * To provide input-data validation
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see Validator
  */
 @Component
 public class UserValidator implements Validator {

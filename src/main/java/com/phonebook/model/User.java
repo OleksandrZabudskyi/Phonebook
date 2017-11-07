@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
+ * <code>User</code> class describes the information about user with list of contacts.
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Entity

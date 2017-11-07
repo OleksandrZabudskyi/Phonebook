@@ -12,7 +12,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * <code>UserServiceJsonImpl</code> class is the <code>UserService</code> interface
+ * implementation.
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see UserService
  */
 @Service
 public class UserServiceJsonImpl implements UserService {

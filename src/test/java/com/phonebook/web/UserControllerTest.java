@@ -1,6 +1,6 @@
 package com.phonebook.web;
 
-import com.phonebook.DataFactory;
+import com.phonebook.TestDataFactory;
 import com.phonebook.model.Contact;
 import com.phonebook.service.SecurityService;
 import com.phonebook.service.UserService;
@@ -97,7 +97,7 @@ public class UserControllerTest {
     @Test
     public void showPhoneBook() throws Exception {
         User user = new User("Jone", "12345", "Jone Bishop");
-        List<Contact> contacts = DataFactory.createContactList(4, user);
+        List<Contact> contacts = TestDataFactory.createContactList(4, user);
         user.setContacts(contacts);
         when(mockSecurityService.findAuthenticatedUsername()).thenReturn("Jone");
         when(mockUserService.findUserByUsername("Jone")).thenReturn(user);

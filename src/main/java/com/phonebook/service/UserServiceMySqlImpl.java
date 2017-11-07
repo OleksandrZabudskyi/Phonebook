@@ -9,7 +9,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
+ * <code>UserServiceJsonImpl</code> class is the <code>UserService</code> interface
+ * implementation.
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @see UserService
  */
 @Service
 public class UserServiceMySqlImpl implements UserService {

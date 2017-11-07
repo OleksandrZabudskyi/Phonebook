@@ -7,9 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * <code>TestDataFactory</code> class is utility class for generating objects for test
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
-public class DataFactory {
+public class TestDataFactory {
 
     public static List<Contact> createContactList(int count, User user) {
         List<Contact> contacts = new LinkedList<>();
