@@ -3,9 +3,11 @@ USE `phonebook`;
 
 DROP TABLE IF EXISTS `contact`;
 DROP TABLE IF EXISTS `user`;
+
 --
 -- Table structure for table `user`
 --
+
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
@@ -18,6 +20,7 @@ CREATE TABLE `user` (
 --
 -- Table structure for table `contact`
 --
+
 CREATE TABLE `contact` (
   `contact_id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) NOT NULL,
@@ -36,6 +39,10 @@ CREATE TABLE `contact` (
 DROP TABLE IF EXISTS `SPRING_SESSION_ATTRIBUTES`;
 DROP TABLE IF EXISTS `SPRING_SESSION`;
 
+--
+-- Table structure for table `spring_session`
+--
+
 CREATE TABLE SPRING_SESSION (
   SESSION_ID CHAR(36),
   CREATION_TIME BIGINT NOT NULL,
@@ -46,6 +53,10 @@ CREATE TABLE SPRING_SESSION (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE INDEX SPRING_SESSION_IX1 ON SPRING_SESSION (LAST_ACCESS_TIME);
+
+--
+-- Table structure for table `spring_session_attributes`
+--
 
 CREATE TABLE SPRING_SESSION_ATTRIBUTES (
   SESSION_ID CHAR(36),
