@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Configuration
 @ComponentScan

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Entity
 @Table(name = "user")

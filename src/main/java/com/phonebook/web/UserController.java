@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.websocket.server.PathParam;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Controller
 public class UserController {

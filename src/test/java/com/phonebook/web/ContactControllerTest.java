@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com.
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ContactControllerTest {

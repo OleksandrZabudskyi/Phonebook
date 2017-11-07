@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * Created by Zabudskyi Oleksandr zabudskyioleksandr@gmail.com.
+ * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UserControllerTest.class, ContactControllerTest.class})
