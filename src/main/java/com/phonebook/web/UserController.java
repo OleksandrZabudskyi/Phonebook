@@ -19,6 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.websocket.server.PathParam;
 
 /**
+ * <code>UserController</code> realizes the controller of the MVC pattern.
+ * <code>UserController</code> handles requests for user account and determining response view
+ *
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 @Controller
@@ -32,19 +35,33 @@ public class UserController {
     }
 
     @Autowired
-    public UserController( @Qualifier("storage") UserService userService, SecurityService securityService,
-                           UserValidator userValidator) {
+    public UserController(@Qualifier("storage") UserService userService, SecurityService securityService,
+                          UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
         this.userValidator = userValidator;
     }
 
+    /**
+     * Loading registration form
+     *
+     * @param model model for attributes
+     * @return registration form name view
+     */
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
         model.addAttribute("userForm", new User());
         return "registrationForm";
     }
 
+    /**
+     * Process of registration new user
+     *
+     * @param userForm form containing information about User
+     * @param bindingResult binding error related with invalid data form
+     * @return in case of {@code bindingResult} has error return registration form otherwise redirect
+     * to phone book page
+     */
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String processRegistration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
@@ -58,21 +75,39 @@ public class UserController {
         return "redirect:/phonebook";
     }
 
+    /**
+     * Loading login form
+     *
+     * @param model  model for attributes
+     * @param error error attribute
+     * @param logout logout attribute
+     * @return login form name view
+     */
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
 
-        if (logout != null)
+        if (error != null) {
+            model.addAttribute("error", "Your username and password is invalid.");
+        }
+
+        if (logout != null) {
             model.addAttribute("message", "You have been logged out successfully.");
+        }
 
         return "loginForm";
     }
 
+    /**
+     * Process of loading phonebook on home page
+     *
+     * @param message message attribute
+     * @return model and view with name home or login form in case expired session
+     */
     @RequestMapping(value = "/phonebook", method = RequestMethod.GET)
     public ModelAndView showPhoneBook(@PathParam("message") String message) {
         ModelAndView result = new ModelAndView("home");
-        result.addObject("message",message);
+        result.addObject("message", message);
+
         String userName = securityService.findAuthenticatedUsername();
         User user = userService.findUserByUsername(userName);
 
