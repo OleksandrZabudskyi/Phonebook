@@ -11,7 +11,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  */
 @Configuration
 @ComponentScan
-@PropertySource("file:${lardi.conf}")
+@PropertySource("file:${phonebook.conf}")
 public class PropertiesConfig {
 
     @Bean
