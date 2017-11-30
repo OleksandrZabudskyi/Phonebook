@@ -3,6 +3,7 @@ package com.phonebook.web;
 import com.phonebook.TestDataFactory;
 import com.phonebook.model.Contact;
 import com.phonebook.model.User;
+import com.phonebook.service.ContactService;
 import com.phonebook.service.SecurityService;
 import com.phonebook.service.UserService;
 import com.phonebook.validator.ContactValidator;
@@ -34,6 +35,8 @@ public class ContactControllerTest {
     @Mock
     private UserService mockUserService;
     @Mock
+    private ContactService mockContactService;
+    @Mock
     private SecurityService mockSecurityService;
     @Mock
     private ContactValidator mockContactValidator;
@@ -43,7 +46,8 @@ public class ContactControllerTest {
     @Before
     public void setupMock() {
         MockitoAnnotations.initMocks(this);
-        contactController = new ContactController(mockUserService, mockSecurityService, mockContactValidator);
+        contactController = new ContactController(mockContactService, mockUserService, mockSecurityService,
+                mockContactValidator);
     }
 
     @Test

@@ -24,18 +24,4 @@ public interface UserService {
      * @param user user
      */
     void saveUser(User user);
-
-    /**
-     *
-     * @param contact contact
-     * @param user user
-     */
-    void saveContact(Contact contact, User user);
-
-    /**
-     *
-     * @param contactId contactId
-     * @param user user
-     */
-    void deleteContact(Long contactId, User user);
 }

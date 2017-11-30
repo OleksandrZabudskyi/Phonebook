@@ -1,6 +1,8 @@
 package com.phonebook.service;
 
 
+import com.phonebook.model.User;
+
 /**
  * To provide current logged in user and auto login user after registration an account.
  *

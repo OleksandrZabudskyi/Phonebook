@@ -1,9 +1,7 @@
 package com.phonebook.config;
 
 import com.phonebook.repository.*;
-import com.phonebook.service.UserService;
-import com.phonebook.service.UserServiceMySqlImpl;
-import com.phonebook.service.UserServiceJsonImpl;
+import com.phonebook.service.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -16,14 +14,23 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
-public class UserSourceConfig {
+public class SourceConfig {
 
-    @Bean(name = "storage")
+    @Bean(name = "userServType")
     public UserService userService(@Value("${app.dbType}") String databaseType, ApplicationContext context) {
         if ("JSON".equalsIgnoreCase(databaseType)) {
             return context.getBean(UserServiceJsonImpl.class);
         } else {
             return context.getBean(UserServiceMySqlImpl.class);
+        }
+    }
+
+    @Bean(name = "contactServType")
+    public ContactService contactService(@Value("${app.dbType}") String databaseType, ApplicationContext context) {
+        if ("JSON".equalsIgnoreCase(databaseType)) {
+            return context.getBean(ContactServiceJsonImpl.class);
+        } else {
+            return context.getBean(ContactServiceMySqlImpl.class);
         }
     }
 

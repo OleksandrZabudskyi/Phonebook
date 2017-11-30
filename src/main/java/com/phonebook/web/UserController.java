@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @Autowired
-    public UserController(@Qualifier("storage") UserService userService, SecurityService securityService,
+    public UserController(@Qualifier("userServType") UserService userService, SecurityService securityService,
                           UserValidator userValidator) {
         this.userService = userService;
         this.securityService = securityService;
@@ -57,7 +57,7 @@ public class UserController {
     /**
      * Process of registration new user
      *
-     * @param userForm form containing information about User
+     * @param userForm      form containing information about User
      * @param bindingResult binding error related with invalid data form
      * @return in case of {@code bindingResult} has error return registration form otherwise redirect
      * to phone book page
@@ -79,7 +79,7 @@ public class UserController {
      * Loading login form
      *
      * @param model  model for attributes
-     * @param error error attribute
+     * @param error  error attribute
      * @param logout logout attribute
      * @return login form name view
      */

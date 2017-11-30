@@ -23,7 +23,7 @@ public class UserValidator implements Validator {
     private UserService userService;
 
     @Autowired
-    public UserValidator(@Qualifier("storage") UserService userService) {
+    public UserValidator(@Qualifier("userServType") UserService userService) {
         this.userService = userService;
     }
 
