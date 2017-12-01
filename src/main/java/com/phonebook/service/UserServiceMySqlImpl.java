@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceMySqlImpl implements UserService {
-
     private UserMySqlRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 

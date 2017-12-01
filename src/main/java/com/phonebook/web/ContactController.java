@@ -26,7 +26,6 @@ import javax.websocket.server.PathParam;
  */
 @Controller
 public class ContactController {
-
     private ContactService contactService;
     private UserService userService;
     private SecurityService securityService;

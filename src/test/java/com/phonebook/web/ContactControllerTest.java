@@ -31,7 +31,6 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ContactControllerTest {
-
     @Mock
     private UserService mockUserService;
     @Mock
@@ -40,7 +39,6 @@ public class ContactControllerTest {
     private SecurityService mockSecurityService;
     @Mock
     private ContactValidator mockContactValidator;
-
     private ContactController contactController;
 
     @Before

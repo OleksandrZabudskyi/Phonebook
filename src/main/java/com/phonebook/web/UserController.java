@@ -26,7 +26,6 @@ import javax.websocket.server.PathParam;
  */
 @Controller
 public class UserController {
-
     private UserService userService;
     private SecurityService securityService;
     private UserValidator userValidator;

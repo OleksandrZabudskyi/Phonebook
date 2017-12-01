@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceJsonImpl implements UserService {
-
     private UserJsonFileRepository userJsonFileRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 

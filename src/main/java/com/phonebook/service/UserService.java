@@ -12,6 +12,7 @@ import java.util.List;
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public interface UserService {
+
     /**
      * Get user by username
      *

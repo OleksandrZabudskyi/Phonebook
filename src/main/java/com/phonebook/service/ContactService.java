@@ -9,6 +9,7 @@ import com.phonebook.model.User;
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com.
  */
 public interface ContactService {
+
     /**
      * Save contact for user
      *

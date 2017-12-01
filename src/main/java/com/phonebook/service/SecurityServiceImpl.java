@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SecurityServiceImpl implements SecurityService {
-
     private static final Logger LOG = LoggerFactory.getLogger(SecurityServiceImpl.class);
     private AuthenticationManager authenticationManager;
     private UserDetailsService userDetailsService;

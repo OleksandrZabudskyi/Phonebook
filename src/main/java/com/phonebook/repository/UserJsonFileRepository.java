@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.phonebook.model.User;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,9 +25,7 @@ import java.nio.file.Paths;
  */
 @Repository
 public class UserJsonFileRepository implements UserRepository {
-
     private static final Logger LOG = LoggerFactory.getLogger(UserJsonFileRepository.class);
-
     @Value("${spring.file.datasource.path}")
     private String path;
 

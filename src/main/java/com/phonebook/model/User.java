@@ -14,7 +14,6 @@ import java.util.*;
 @Table(name = "user")
 @JsonIgnoreProperties({"passwordConfirm"})
 public class User {
-
     private Long id;
     private String username;
     private String password;

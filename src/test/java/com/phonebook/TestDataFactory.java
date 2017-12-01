@@ -12,7 +12,6 @@ import java.util.List;
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  */
 public class TestDataFactory {
-
     public static List<Contact> createContactList(int count, User user) {
         List<Contact> contacts = new LinkedList<>();
         for (int i = 0; i < count; i++) {

@@ -16,7 +16,6 @@ import org.springframework.validation.Validator;
  */
 @Component
 public class ContactValidator implements Validator {
-
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private static final String MOBILE_PATTERN = "^[\\+38\\(0]{5}[0-9]{2}\\)[0-9]{7}$";

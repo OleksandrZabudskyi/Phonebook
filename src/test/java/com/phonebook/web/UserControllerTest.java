@@ -32,7 +32,6 @@ public class UserControllerTest {
     private UserService mockUserService;
     @Mock
     private SecurityService mockSecurityService;
-
     private UserController controller;
 
     @Before

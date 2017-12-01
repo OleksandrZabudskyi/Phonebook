@@ -14,7 +14,6 @@ import java.util.Objects;
 @Table(name = "contact")
 @JsonIgnoreProperties({"user"})
 public class Contact {
-
     private Long id;
     private String firstName;
     private String lastName;

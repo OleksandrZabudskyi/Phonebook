@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 public class SourceConfig {
-
     @Bean(name = "userServType")
     public UserService userService(@Value("${app.dbType}") String databaseType, ApplicationContext context) {
         if ("JSON".equalsIgnoreCase(databaseType)) {
