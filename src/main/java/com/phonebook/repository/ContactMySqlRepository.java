@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com
  * @see JpaRepository
  */
-public interface ContactMySqlRepository extends JpaRepository<Contact, Long>{
+public interface ContactMySqlRepository extends JpaRepository<Contact, Long> {
 }

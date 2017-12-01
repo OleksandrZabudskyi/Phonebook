@@ -32,7 +32,7 @@ public class UserServiceJsonImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        if (user.getId() == null){
+        if (user.getId() == null) {
             user.setId((long) user.hashCode());
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }

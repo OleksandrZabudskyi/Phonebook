@@ -10,7 +10,7 @@ import com.phonebook.model.User;
  */
 public interface SecurityService {
     /**
-     *Extracting user name from Security Context
+     * Extracting user name from Security Context
      *
      * @return username
      */

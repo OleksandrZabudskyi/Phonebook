@@ -44,12 +44,12 @@ public class UserJsonFileRepository implements UserRepository {
             LOG.warn(String.format("There is no Json files in dir: %s ", dir));
             return null;
         } else {
-                try {
-                    user = objectMapper.readValue(files[0], User.class);
-                } catch (IOException e) {
-                    LOG.error("ERROR: '{}'", e.getMessage(), e);
-                    return null;
-                }
+            try {
+                user = objectMapper.readValue(files[0], User.class);
+            } catch (IOException e) {
+                LOG.error("ERROR: '{}'", e.getMessage(), e);
+                return null;
+            }
         }
 
 
@@ -65,12 +65,12 @@ public class UserJsonFileRepository implements UserRepository {
     public boolean saveUser(User user) {
 
         File file = new File(path + user.getUsername() + "_tmp" + ".json");
-        if(!file.getParentFile().mkdirs()) {
+        if (!file.getParentFile().mkdirs()) {
             return false;
         }
 
         try {
-            if(!file.createNewFile()) {
+            if (!file.createNewFile()) {
                 return false;
             }
         } catch (IOException e) {
@@ -83,7 +83,7 @@ public class UserJsonFileRepository implements UserRepository {
             objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
             objectMapper.writeValue(file, user);
             String pathToOldFile = path + user.getUsername() + ".json";
-            if (new File(pathToOldFile).exists()){
+            if (new File(pathToOldFile).exists()) {
                 Files.delete(Paths.get(pathToOldFile));
             }
             return file.renameTo(new File(pathToOldFile));

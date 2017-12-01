@@ -13,13 +13,15 @@ import java.util.List;
  */
 public interface UserService {
     /**
+     * Get user by username
      *
-     * @param username
-     * @return
+     * @param username username
+     * @return user object
      */
     User findUserByUsername(String username);
 
     /**
+     * Save user object
      *
      * @param user user
      */

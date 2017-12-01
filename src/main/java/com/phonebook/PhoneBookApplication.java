@@ -11,13 +11,13 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @SpringBootApplication
 public class PhoneBookApplication extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(PhoneBookApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(PhoneBookApplication.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(PhoneBookApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(PhoneBookApplication.class, args);
 
-	}
+    }
 }

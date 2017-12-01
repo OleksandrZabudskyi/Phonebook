@@ -23,13 +23,13 @@ public class ContactServiceJsonImpl implements ContactService {
     public void saveContact(Contact contact, User user) {
         final Long contactId = contact.getId();
         List<Contact> contacts = user.getContacts();
-        if(contacts == null) {
+        if (contacts == null) {
             contacts = new LinkedList<>();
             user.setContacts(contacts);
         }
-        if(contactId != null){
-            for (int i = 0; i < contacts.size() ; i++) {
-                if( contactId.equals(contacts.get(i).getId())) {
+        if (contactId != null) {
+            for (int i = 0; i < contacts.size(); i++) {
+                if (contactId.equals(contacts.get(i).getId())) {
                     contact.setId((long) i);
                     contacts.set(i, contact);
                 }
@@ -46,7 +46,7 @@ public class ContactServiceJsonImpl implements ContactService {
         Iterator<Contact> iterator = user.getContacts().iterator();
         while (iterator.hasNext()) {
             Contact contact = iterator.next();
-            if(contactId.equals(contact.getId())) {
+            if (contactId.equals(contact.getId())) {
                 iterator.remove();
             }
         }
