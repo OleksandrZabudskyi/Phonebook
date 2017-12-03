@@ -3,6 +3,8 @@ package com.phonebook.service;
 import com.phonebook.model.Contact;
 import com.phonebook.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -15,9 +17,14 @@ import java.util.List;
  * @author Zabudskyi Oleksandr zabudskyioleksandr@gmail.com.
  * @see ContactService
  */
+@Service
 public class ContactServiceJsonImpl implements ContactService {
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public ContactServiceJsonImpl(@Qualifier("userServType") UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public void saveContact(Contact contact, User user) {

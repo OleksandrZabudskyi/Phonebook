@@ -100,7 +100,7 @@ public class ContactController {
             return "loginForm";
         }
 
-        if (id != null) {
+        if (id != null && !id.isEmpty()) {
             contactService.deleteContact(Long.valueOf(id), user);
             model.addAttribute("message", "Selected contact was successfully removed");
         }

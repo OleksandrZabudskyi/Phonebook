@@ -62,9 +62,10 @@ public class UserJsonFileRepository implements UserRepository {
      * @return if operation is successful return {@code true} otherwise {@code false}
      */
     public boolean saveUser(User user) {
-
         File file = new File(path + user.getUsername() + "_tmp" + ".json");
-        if (!file.getParentFile().mkdirs()) {
+        File parent = file.getParentFile();
+        if (!parent.exists() && !parent.mkdirs()) {
+            LOG.warn(String.format("It's not posible create temp file: %s ", file.getAbsolutePath()));
             return false;
         }
 
